@@ -11,7 +11,7 @@ namespace WinFormsApp2
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());               // form1 클래스의 인스턴스를 생성하고 실행
+            Application.Run(new FormMain());               // form1 클래스의 인스턴스를 생성하고 실행
         }
     }
 }
