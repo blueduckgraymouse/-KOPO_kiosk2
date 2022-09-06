@@ -16,24 +16,16 @@ namespace WinFormsApp2
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonOrder_Click(object sender, EventArgs e)
         {
-            FormLookUpByName formLookUpByName = new FormLookUpByName();
-            formLookUpByName.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FormLookUpByMenu formLookUpByMenu = new FormLookUpByMenu();
-            formLookUpByMenu.ShowDialog();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form1 form1 = new Form1();
+            Form1 form1 = new Form1();  // 주문
             form1.ShowDialog();
         }
 
+        private void buttonResult_Click(object sender, EventArgs e)
+        {
+            FormAdmin formAdmin = new FormAdmin();
+            formAdmin.ShowDialog();
+        }
     }
 }

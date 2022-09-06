@@ -1,86 +1,73 @@
 ﻿namespace WinFormsApp2
 {
     partial class FormMain
+{
+    /// <summary>
+    /// Required designer variable.
+    /// </summary>
+    private System.ComponentModel.IContainer components = null;
+
+    /// <summary>
+    /// Clean up any resources being used.
+    /// </summary>
+    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    protected override void Dispose(bool disposing)
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        if (disposing && (components != null))
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
+            components.Dispose();
         }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(204, 72);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "이름별조회";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(300, 72);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "메뉴별조회";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(111, 72);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "주문";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // FormMain
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1920, 1200);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "FormMain";
-            this.Text = "FormMain";
-            this.ResumeLayout(false);
-
-        }
-
-        #endregion
-
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        base.Dispose(disposing);
     }
+
+    #region Windows Form Designer generated code
+
+    /// <summary>
+    /// Required method for Designer support - do not modify
+    /// the contents of this method with the code editor.
+    /// </summary>
+    private void InitializeComponent()
+    {
+        this.buttonOrder = new System.Windows.Forms.Button();
+        this.buttonResult = new System.Windows.Forms.Button();
+        this.SuspendLayout();
+        // 
+        // buttonOrder
+        // 
+        this.buttonOrder.Location = new System.Drawing.Point(162, 155);
+        this.buttonOrder.Name = "buttonOrder";
+        this.buttonOrder.Size = new System.Drawing.Size(75, 23);
+        this.buttonOrder.TabIndex = 0;
+        this.buttonOrder.Text = "주문";
+        this.buttonOrder.UseVisualStyleBackColor = true;
+        this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
+        // 
+        // buttonResult
+        // 
+        this.buttonResult.Location = new System.Drawing.Point(331, 155);
+        this.buttonResult.Name = "buttonResult";
+        this.buttonResult.Size = new System.Drawing.Size(75, 23);
+        this.buttonResult.TabIndex = 1;
+        this.buttonResult.Text = "결산";
+        this.buttonResult.UseVisualStyleBackColor = true;
+        this.buttonResult.Click += new System.EventHandler(this.buttonResult_Click);
+        // 
+        // FormAdmin
+        // 
+        this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        this.ClientSize = new System.Drawing.Size(800, 450);
+        this.Controls.Add(this.buttonResult);
+        this.Controls.Add(this.buttonOrder);
+        this.Name = "FormAdmin";
+        this.Text = "FormAdmin";
+        this.ResumeLayout(false);
+
+    }
+
+    #endregion
+
+    private Button buttonOrder;
+    private Button buttonResult;
+}
 }
