@@ -10,12 +10,6 @@
     <Compile Update="FormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormLookUpByMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="FormLookUpByName.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -62,8 +62,6 @@ C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\bin\Debug\net6.0-wi
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\bin\Debug\net6.0-windows\Ubiety.Dns.Core.dll
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\bin\Debug\net6.0-windows\ZstdNet.dll
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
-C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormLookUpByMenu.resources
-C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormLookUpByName.resources
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormMain.resources
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.csproj.CopyComplete
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormAdmin.resources
