@@ -31,7 +31,7 @@ namespace WinFormsApp2
             this.Hide();
             //Form2 showForm2 = new Form2();
             //showForm2.Show();
-            showForm();
+            showForm("1");
 
         }
         private void button2_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace WinFormsApp2
             Label label1 = new Label();
 
             this.Hide();
-            showForm();
+            showForm("2");
 
         }
         private void button3_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace WinFormsApp2
 
             //원래 창 가리기
             this.Hide();
-            showForm();
+            showForm("3");
             //Form2 showForm2 = new Form2();
             //showForm2.Show();
 
@@ -65,10 +65,12 @@ namespace WinFormsApp2
 
         }
 
-        private void showForm()
+        private void showForm(String ClassNo)
         {
-            Form2 showForm2 = new Form2();
-            showForm2.Show();
+            //Form2 showForm2 = new Form2();
+            //showForm2.Show();
+            FormSelectName formSelectName = new FormSelectName(ClassNo);
+            formSelectName.Show();
         }
     }
 }

@@ -14,48 +14,55 @@ namespace WinFormsApp2
         //private void buttonCheck_Click(object sender, EventArgs e)
         private void selectOrderhistory()
         {
-            MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
-
-            dataGridView1.Rows.Clear();
-            String selectQuery = "select hNo, mName, hname, hteam from orderHistory as o, menu where o.mNo = menu.mNo order by o.hNo";
-
-            connection.Open();
-
-            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
-
-            MySqlDataReader table = cmd.ExecuteReader();
-
-            dataGridView1.ColumnCount = 4;
-            dataGridView1.Columns[0].Name = "주문번호";
-            dataGridView1.Columns[1].Name = "메뉴이름";
-            dataGridView1.Columns[2].Name = "주문자명";
-            dataGridView1.Columns[3].Name = "반구분";
-
-            while (table.Read())
+            try
             {
-                dataGridView1.Rows.Add(table["hNo"], table["mName"], table["hname"], table["hteam"]);
+                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+
+                dataGridView1.Rows.Clear();
+                String selectQuery = "select hNo, mName, hname, hteam from orderHistory as o, menu where o.mNo = menu.mNo order by o.hNo";
+
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+
+                MySqlDataReader table = cmd.ExecuteReader();
+
+                dataGridView1.ColumnCount = 4;
+                dataGridView1.Columns[0].Name = "주문번호";
+                dataGridView1.Columns[1].Name = "메뉴이름";
+                dataGridView1.Columns[2].Name = "주문자명";
+                dataGridView1.Columns[3].Name = "반구분";
+
+                while (table.Read())
+                {
+                    dataGridView1.Rows.Add(table["hNo"], table["mName"], table["hname"], table["hteam"]);
+                }
+
+                dataGridView2.Rows.Clear();
+                String selectQuery2 = "select mName, count(*) as total from orderHistory as o, menu where o.mNo = menu.mNo group by mName";
+                connection.Close();
+
+                connection.Open();
+
+                MySqlCommand cmd2 = new MySqlCommand(selectQuery2, connection);
+
+                MySqlDataReader table2 = cmd2.ExecuteReader();
+
+                dataGridView2.ColumnCount = 2;
+                dataGridView2.Columns[0].Name = "메뉴이름";
+                dataGridView2.Columns[1].Name = "수량";
+
+                while (table2.Read())
+                {
+                    dataGridView2.Rows.Add(table2["mName"], table2["total"]);
+                }
+
+                connection.Close();
             }
-
-            dataGridView2.Rows.Clear();
-            String selectQuery2 = "select mName, count(*) as total from orderHistory as o, menu where o.mNo = menu.mNo group by mName";
-            connection.Close();
-
-            connection.Open();
-
-            MySqlCommand cmd2 = new MySqlCommand(selectQuery2, connection);
-
-            MySqlDataReader table2 = cmd2.ExecuteReader();
-
-            dataGridView2.ColumnCount = 2;
-            dataGridView2.Columns[0].Name = "메뉴이름";
-            dataGridView2.Columns[1].Name = "수량";
-
-            while (table2.Read())
+            catch (Exception ex)
             {
-                dataGridView2.Rows.Add(table2["mName"], table2["total"]);
+                MessageBox.Show("주문 조회 실패", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            connection.Close();
         }
 
 
