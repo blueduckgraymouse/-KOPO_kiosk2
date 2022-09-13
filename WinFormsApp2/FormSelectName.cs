@@ -31,6 +31,9 @@ namespace WinFormsApp2
 
                 while (table.Read())
                 {
+                    String name = table["pName"].ToString();
+                    //name = name.Substring(0,1) + "*" + name.Substring(3);
+
                     Button btn_clone = new Button();
                     btn_clone.Click += new EventHandler(btn_clone_click);
 
@@ -42,7 +45,7 @@ namespace WinFormsApp2
                     btn_clone.Height = 30;
                     btn_clone.FlatStyle = FlatStyle.Standard;
                     btn_clone.BackColor = Color.FromArgb(100, Color.Yellow);
-                    btn_clone.Text = table["pName"].ToString();
+                    btn_clone.Text = name;
                     count++;
                 }
 
@@ -50,7 +53,7 @@ namespace WinFormsApp2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("주문 조회 실패", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             }
         }
 
