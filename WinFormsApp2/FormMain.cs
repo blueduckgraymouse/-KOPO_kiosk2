@@ -14,9 +14,9 @@
             this.Hide();
         }
 
-        private void buttonResult_Click(object sender, EventArgs e)
+        private void buttonBasket_Click(object sender, EventArgs e)
         {
-            FormAdmin formAdmin = new FormAdmin();
+            FormAdmin formAdmin = new FormAdmin();  // 주문 조회
             formAdmin.Show();
             this.Hide();
         }

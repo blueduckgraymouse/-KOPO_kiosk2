@@ -29,34 +29,35 @@
     private void InitializeComponent()
     {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pictureOrder = new System.Windows.Forms.PictureBox();
+            this.pictureBasket = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBasket)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pictureOrder
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::WinFormsApp2.Properties.Resources.주문;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(245, 387);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(496, 440);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.buttonOrder_Click);
+            this.pictureOrder.BackColor = System.Drawing.Color.Transparent;
+            this.pictureOrder.BackgroundImage = global::WinFormsApp2.Properties.Resources.주문;
+            this.pictureOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureOrder.Location = new System.Drawing.Point(264, 386);
+            this.pictureOrder.Name = "pictureOrder";
+            this.pictureOrder.Size = new System.Drawing.Size(496, 440);
+            this.pictureOrder.TabIndex = 2;
+            this.pictureOrder.TabStop = false;
+            this.pictureOrder.Click += new System.EventHandler(this.buttonOrder_Click);
             // 
-            // pictureBox2
+            // pictureBasket
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::WinFormsApp2.Properties.Resources.장바구니3;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(810, 34);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(171, 110);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.pictureBasket.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBasket.BackgroundImage = global::WinFormsApp2.Properties.Resources.장바구니3;
+            this.pictureBasket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBasket.Location = new System.Drawing.Point(867, 37);
+            this.pictureBasket.Name = "pictureBasket";
+            this.pictureBasket.Size = new System.Drawing.Size(171, 110);
+            this.pictureBasket.TabIndex = 3;
+            this.pictureBasket.TabStop = false;
+            this.pictureBasket.Click += new System.EventHandler(this.buttonBasket_Click);
             // 
             // FormMain
             // 
@@ -64,19 +65,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1004, 1881);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(1064, 1881);
+            this.Controls.Add(this.pictureBasket);
+            this.Controls.Add(this.pictureOrder);
             this.Name = "FormMain";
-            this.Text = "FormAdmin";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.Text = "FormMain";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBasket)).EndInit();
             this.ResumeLayout(false);
 
     }
 
     #endregion
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private PictureBox pictureOrder;
+        private PictureBox pictureBasket;
     }
 }
