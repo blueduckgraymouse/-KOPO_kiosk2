@@ -40,7 +40,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(97, 219);
+            this.button1.Location = new System.Drawing.Point(95, 163);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(380, 387);
             this.button1.TabIndex = 1;
@@ -54,7 +54,7 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(551, 219);
+            this.button2.Location = new System.Drawing.Point(549, 163);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(380, 387);
             this.button2.TabIndex = 2;

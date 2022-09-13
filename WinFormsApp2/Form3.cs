@@ -12,10 +12,14 @@ namespace WinFormsApp2
 {
     public partial class Form3 : Form
     {
+
         public Form3()
         {
             InitializeComponent();
+
         }
+
+
 
         private void button12_Click(object sender, EventArgs e)
         {
