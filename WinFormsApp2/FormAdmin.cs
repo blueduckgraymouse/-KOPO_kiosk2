@@ -125,7 +125,14 @@ namespace WinFormsApp2
             selectOrderhistory();
         }
 
-        private void buttonBack_Click(object sender, EventArgs e)
+        private void pictureBoxHome_Click(object sender, EventArgs e)
+        {
+            FormMain formMain = new FormMain();
+            formMain.Show();
+            this.Hide();
+        }
+
+        private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             FormMain formMain = new FormMain();
             formMain.Show();

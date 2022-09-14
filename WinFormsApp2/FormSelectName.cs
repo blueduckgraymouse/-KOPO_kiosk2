@@ -91,5 +91,12 @@ namespace WinFormsApp2
             form1.Show();
             this.Hide();
         }
+
+        public void buttonHome_Click(object sender, EventArgs e)
+        {
+            FormMain formMain = new FormMain();
+            formMain.Show();
+            this.Hide();
+        }
     }
 }

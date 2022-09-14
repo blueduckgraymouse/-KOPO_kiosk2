@@ -50,7 +50,7 @@
             // pictureBasket
             // 
             this.pictureBasket.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBasket.BackgroundImage = global::WinFormsApp2.Properties.Resources.장바구니3;
+            this.pictureBasket.BackgroundImage = global::WinFormsApp2.Properties.Resources.장바구니2;
             this.pictureBasket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBasket.Location = new System.Drawing.Point(867, 37);
             this.pictureBasket.Name = "pictureBasket";

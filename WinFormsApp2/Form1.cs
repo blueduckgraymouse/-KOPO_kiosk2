@@ -28,7 +28,14 @@ namespace WinFormsApp2
             this.Hide();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            FormMain formMain = new FormMain();
+            formMain.Show();
+            this.Hide();
+        }
+
+        private void pictureBoxHome_Click(object sender, EventArgs e)
         {
             FormMain formMain = new FormMain();
             formMain.Show();

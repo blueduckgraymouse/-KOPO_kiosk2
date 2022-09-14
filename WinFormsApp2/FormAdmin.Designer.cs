@@ -36,10 +36,12 @@
             this.dataGridViewSortedByCount = new System.Windows.Forms.DataGridView();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.pictureBack = new System.Windows.Forms.PictureBox();
+            this.pictureBoxHome = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSortedByName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSortedByCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewSortedByName
@@ -115,17 +117,28 @@
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // pictureBack
+            // pictureBoxHome
             // 
-            this.pictureBack.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBack.BackgroundImage = global::WinFormsApp2.Properties.Resources.뒤로가기;
-            this.pictureBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBack.Location = new System.Drawing.Point(945, 12);
-            this.pictureBack.Name = "pictureBack";
-            this.pictureBack.Size = new System.Drawing.Size(107, 118);
-            this.pictureBack.TabIndex = 9;
-            this.pictureBack.TabStop = false;
-            this.pictureBack.Click += new System.EventHandler(this.buttonBack_Click);
+            this.pictureBoxHome.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxHome.BackgroundImage = global::WinFormsApp2.Properties.Resources.home;
+            this.pictureBoxHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxHome.Location = new System.Drawing.Point(12, 12);
+            this.pictureBoxHome.Name = "pictureBoxHome";
+            this.pictureBoxHome.Size = new System.Drawing.Size(107, 118);
+            this.pictureBoxHome.TabIndex = 9;
+            this.pictureBoxHome.TabStop = false;
+            this.pictureBoxHome.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            // 
+            // pictureBoxBack
+            // 
+            this.pictureBoxBack.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxBack.BackgroundImage = global::WinFormsApp2.Properties.Resources.뒤로가기2;
+            this.pictureBoxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxBack.Location = new System.Drawing.Point(945, 12);
+            this.pictureBoxBack.Name = "pictureBoxBack";
+            this.pictureBoxBack.Size = new System.Drawing.Size(107, 118);
+            this.pictureBoxBack.TabIndex = 10;
+            this.pictureBoxBack.TabStop = false;
             // 
             // FormAdmin
             // 
@@ -134,7 +147,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1064, 1881);
-            this.Controls.Add(this.pictureBack);
+            this.Controls.Add(this.pictureBoxBack);
+            this.Controls.Add(this.pictureBoxHome);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.dataGridViewSortedByCount);
@@ -144,7 +158,8 @@
             this.Text = "FormAdmin";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSortedByName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSortedByCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,6 +169,7 @@
         private DataGridView dataGridViewSortedByCount;
         private Button buttonReset;
         private Button buttonDelete;
-        private PictureBox pictureBack;
+        private PictureBox pictureBoxHome;
+        private PictureBox pictureBoxBack;
     }
 }
