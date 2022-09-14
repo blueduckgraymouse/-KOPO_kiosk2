@@ -96,7 +96,7 @@
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabControl1.Font = new System.Drawing.Font("맑은 고딕", 10.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.ItemSize = new System.Drawing.Size(70, 45);
-            this.tabControl1.Location = new System.Drawing.Point(89, 43);
+            this.tabControl1.Location = new System.Drawing.Point(189, 52);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -164,7 +164,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 49);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(636, 219);
+            this.tabPage6.Size = new System.Drawing.Size(633, 219);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Other";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -173,8 +173,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(824, 726);
+            this.BackgroundImage = global::WinFormsApp2.Properties.Resources.KakaoTalk_20220913_152823044;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1064, 1181);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form3";
             this.Text = "Form3";
