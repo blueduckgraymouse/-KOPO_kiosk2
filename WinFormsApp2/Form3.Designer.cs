@@ -58,7 +58,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.button2.Location = new System.Drawing.Point(24, 30);
+            this.button2.Location = new System.Drawing.Point(19, 30);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 37);
             this.button2.TabIndex = 1;
@@ -173,10 +173,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(824, 726);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.Form3_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
