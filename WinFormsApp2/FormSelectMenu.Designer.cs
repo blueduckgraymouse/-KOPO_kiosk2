@@ -30,8 +30,10 @@
         {
             this.pictureBoxHome = new System.Windows.Forms.PictureBox();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
+            this.tabControl = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
+            this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxHome
@@ -58,18 +60,28 @@
             this.pictureBoxBack.TabStop = false;
             this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
             // 
+            // tabControl
+            // 
+            this.tabControl.Location = new System.Drawing.Point(25, 154);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1016, 1688);
+            this.tabControl.TabIndex = 10;
+            // 
             // FormSelectMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WinFormsApp2.Properties.Resources.배경_일러스트;
             this.ClientSize = new System.Drawing.Size(1064, 1881);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.pictureBoxHome);
             this.Name = "FormSelectMenu";
             this.Text = "FormSelectMenu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
+            this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -78,5 +90,6 @@
 
         private PictureBox pictureBoxHome;
         private PictureBox pictureBoxBack;
+        private TabControl tabControl;
     }
 }

@@ -30,8 +30,8 @@ namespace WinFormsApp2
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +41,7 @@ namespace WinFormsApp2
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1016, 1688);
-            this.tabControl1.TabIndex = 2;
+            this.tabControl1.TabIndex = 10;
             // 
             // temp
             // 
@@ -60,10 +60,7 @@ namespace WinFormsApp2
 
         #endregion
 
-        private TabPage tabPage2;
-        private Button button2;
-        private TabPage tabPage1;
-        private Button button1;
         private TabControl tabControl1;
+        private Button button1;
     }
 }

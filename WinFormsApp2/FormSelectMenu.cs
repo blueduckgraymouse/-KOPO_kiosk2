@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 using Button = System.Windows.Forms.Button;
 
 namespace WinFormsApp2
@@ -12,24 +13,10 @@ namespace WinFormsApp2
         {
             InitializeComponent();
 
-            cNo = selected_cNo;
-            pNo = selected_pNo;
-
-            setTagPages();
-        }
-
-        private void setTagPages()
-        {
-            /* 탭 페이지 */
-
-            // 탭 컨트롤 선언
-            TabControl tabControl = new TabControl();
-            tabControl.SuspendLayout();
-
-            int index = 0;
-            // 탭 생성
             try
             {
+                int i = 0;
+
                 MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
 
                 String selectQuery = "select cNo, cName from category";
@@ -40,8 +27,6 @@ namespace WinFormsApp2
 
                 MySqlDataReader table = cmd.ExecuteReader();
 
-                //int totalCount = Convert.ToInt32(cmd.ExecuteScalar());
-
                 // 버튼 추가
                 while (table.Read())
                 {
@@ -50,22 +35,29 @@ namespace WinFormsApp2
 
                     // 탭 페이지 선언
                     TabPage tabpage_clone = new TabPage();
-                    tabpage_clone.SuspendLayout();
+                    //tabpage_clone.SuspendLayout();
+                    // 탭 페이지 구성
+                    tabpage_clone.Location = new System.Drawing.Point(4, 24);
+                    tabpage_clone.Name = "tabPage" + cNo;
+                    tabpage_clone.Padding = new System.Windows.Forms.Padding(3);
+                    tabpage_clone.Size = new System.Drawing.Size(192, 72);
+                    tabpage_clone.TabIndex = i;
+                    tabpage_clone.Text = name;
+                    tabpage_clone.UseVisualStyleBackColor = true;
 
+                    tabControl.Controls.Add(tabpage_clone);
 
-
-                    /* 버튼 */
                     try
                     {
+                        // 조회
                         MySqlConnection connection2 = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
 
-                        String selectQuery2 = "select mNo, sNo, mName, mVisible from menu as m where cNo = 'cNo'";
+                        String selectQuery2 = "select mNo, sNo, mName, mVisible from menu as m where cNo = " + cNo;
 
-                        selectQuery2 = selectQuery.Replace("#cNo", cNo);
 
-                        connection.Open();
+                        connection2.Open();
 
-                        MySqlCommand cmd2 = new MySqlCommand(selectQuery2, connection);
+                        MySqlCommand cmd2 = new MySqlCommand(selectQuery2, connection2);
 
                         MySqlDataReader table2 = cmd2.ExecuteReader();
 
@@ -78,29 +70,33 @@ namespace WinFormsApp2
                         // 폰트 17
 
                         int[] width = { 145, 435, 725 };
-                        int height = 100;
+                        int height = 200;
 
                         // 버튼 추가
                         while (table2.Read())
                         {
-                            String menuName = table2["mName"].ToString();
+                            String name2 = table2["mName"].ToString();
 
                             Button btn_clone = new Button();
-                            //btn_clone.Click += new EventHandler(buttonClone_Click);
+                            btn_clone.Click += new EventHandler(buttonClone_Click);
+
+                            this.Controls.Add(btn_clone);
 
                             btn_clone.Location = new Point(width[count % 3], height + 150 * (count / 3));
+
                             btn_clone.Width = 60;
                             btn_clone.Height = 30;
                             btn_clone.FlatStyle = FlatStyle.Standard;
                             btn_clone.BackColor = Color.FromArgb(100, Color.Wheat);
+
                             btn_clone.Size = new System.Drawing.Size(200, 100);
                             btn_clone.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-                            btn_clone.Text = name;
-                            btn_clone.Name = table["pNo"].ToString();
+                            btn_clone.Text = name2;
+
+                            btn_clone.Name = table2["mNo"].ToString();
+                            count++;
 
                             tabpage_clone.Controls.Add(btn_clone);
-
-                            count++;
                         }
 
                         connection2.Close();
@@ -108,36 +104,26 @@ namespace WinFormsApp2
                     catch (Exception ex)
                     {
 
-                    } // 버튼
-
-                    index++;
-
-                    // 탭 페이지 구성
-                    tabpage_clone.Location = new System.Drawing.Point(4, 24);
-                    tabpage_clone.Name = "tabPage" + cNo;
-                    tabpage_clone.Padding = new System.Windows.Forms.Padding(3);
-                    tabpage_clone.Size = new System.Drawing.Size(192, 72);
-                    tabpage_clone.TabIndex = index;
-                    tabpage_clone.Text = name;
-                    tabpage_clone.UseVisualStyleBackColor = true;
-
-                    tabControl.Controls.Add(tabpage_clone);
+                    }
+                    i++;
                 }
 
                 connection.Close();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
 
             }
+        }
 
-            tabControl.Location = new System.Drawing.Point(25, 154);
-            tabControl.Name = "tabControl";
-            tabControl.SelectedIndex = 0;
-            tabControl.Size = new System.Drawing.Size(1016, 1688);
-            tabControl.TabIndex = index + 1;
-
-            this.SuspendLayout();
+        private void buttonClone_Click(object sender, EventArgs e)
+        {
+            String mNo = ((Button)sender).Name;
+            //MessageBox.Show(mNo);
+            //mNo, cNo , name 다음 페이지로 전달
+            FormSelectIceOrHot formSelectIceOrHot = new FormSelectIceOrHot(cNo, pNo, mNo);
+            formSelectIceOrHot.Show();
+            this.Hide();
         }
 
         private void pictureBoxHome_Click(object sender, EventArgs e)
