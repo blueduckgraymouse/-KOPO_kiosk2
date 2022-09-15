@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp2
 {
-    partial class FormSelectName
+    partial class FormSelectMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,57 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBack = new System.Windows.Forms.PictureBox();
             this.pictureBoxHome = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).BeginInit();
+            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBack
-            // 
-            this.pictureBack.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBack.BackgroundImage = global::WinFormsApp2.Properties.Resources.뒤로가기2;
-            this.pictureBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBack.Location = new System.Drawing.Point(945, 12);
-            this.pictureBack.Name = "pictureBack";
-            this.pictureBack.Size = new System.Drawing.Size(107, 118);
-            this.pictureBack.TabIndex = 4;
-            this.pictureBack.TabStop = false;
-            this.pictureBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // pictureBoxHome
             // 
             this.pictureBoxHome.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxHome.BackgroundImage = global::WinFormsApp2.Properties.Resources.home;
-            this.pictureBoxHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxHome.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxHome.Name = "pictureBoxHome";
             this.pictureBoxHome.Size = new System.Drawing.Size(107, 118);
-            this.pictureBoxHome.TabIndex = 5;
+            this.pictureBoxHome.TabIndex = 0;
             this.pictureBoxHome.TabStop = false;
-            this.pictureBoxHome.Click += new System.EventHandler(this.buttonHome_Click);
+            this.pictureBoxHome.Click += new System.EventHandler(this.pictureBoxBack_Click);
             // 
-            // FormSelectName
+            // pictureBoxBack
+            // 
+            this.pictureBoxBack.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxBack.BackgroundImage = global::WinFormsApp2.Properties.Resources.뒤로가기2;
+            this.pictureBoxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxBack.Location = new System.Drawing.Point(945, 12);
+            this.pictureBoxBack.Name = "pictureBoxBack";
+            this.pictureBoxBack.Size = new System.Drawing.Size(107, 118);
+            this.pictureBoxBack.TabIndex = 1;
+            this.pictureBoxBack.TabStop = false;
+            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            // 
+            // FormSelectMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WinFormsApp2.Properties.Resources.배경_일러스트;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1064, 1881);
+            this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.pictureBoxHome);
-            this.Controls.Add(this.pictureBack);
-            this.Name = "FormSelectName";
-            this.Text = "FormSelectName";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).EndInit();
+            this.Name = "FormSelectMenu";
+            this.Text = "FormSelectMenu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private PictureBox pictureBack;
-        private Button button1;
         private PictureBox pictureBoxHome;
+        private PictureBox pictureBoxBack;
     }
 }

@@ -38,7 +38,7 @@
             // pictureOrder
             // 
             this.pictureOrder.BackColor = System.Drawing.Color.Transparent;
-            this.pictureOrder.BackgroundImage = global::WinFormsApp2.Properties.Resources.주문;
+            this.pictureOrder.BackgroundImage = global::WinFormsApp2.Properties.Resources.클릭;
             this.pictureOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureOrder.Location = new System.Drawing.Point(264, 386);
             this.pictureOrder.Name = "pictureOrder";

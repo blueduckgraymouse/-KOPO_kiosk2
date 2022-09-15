@@ -4,15 +4,16 @@ namespace WinFormsApp2
 {
     public partial class FormSelectName : Form
     {
-        String classNumber;
-        public FormSelectName(String classNo)
+        String cNo;
+        public FormSelectName(String selected_cNo)
         {
             InitializeComponent();
 
-            classNumber = classNo;
-            setButtons(classNo);
+            cNo = selected_cNo;
+
+            setButtons();
         }
-        public void setButtons(String selected_cNO)
+        public void setButtons()
         {
             try
             {
@@ -21,7 +22,7 @@ namespace WinFormsApp2
 
                 String selectQuery = "select pNo, pName from people as p where cNo = '#cNo' Order by pNo";
 
-                selectQuery = selectQuery.Replace("#cNo", selected_cNO);
+                selectQuery = selectQuery.Replace("#cNo", cNo);
                 //selectQuery = selectQuery.Replace("#cNo", "1");
 
                 connection.Open();
@@ -60,10 +61,12 @@ namespace WinFormsApp2
                     btn_clone.Width = 60;
                     btn_clone.Height = 30;
                     btn_clone.FlatStyle = FlatStyle.Standard;
-                    btn_clone.BackColor = Color.FromArgb(100, Color.Yellow);
+                    btn_clone.BackColor = Color.FromArgb(100, Color.Wheat);
+
                     btn_clone.Size = new System.Drawing.Size(200, 100);
                     btn_clone.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                     btn_clone.Text = name;
+
                     btn_clone.Name = table["pNo"].ToString();
                     count++;
                 }
@@ -79,10 +82,12 @@ namespace WinFormsApp2
         public void buttonClone_Click(object sender, EventArgs e)
         {
 
-            String name = ((Button)sender).Name;
-            MessageBox.Show(name);
-            // classNumber , name 다음 페이지로 전달
-
+            String pNo = ((Button)sender).Name;
+            //MessageBox.Show(pNo);
+            // cNo , name 다음 페이지로 전달
+            FormSelectMenu formSelectMenu = new FormSelectMenu(cNo, pNo);
+            formSelectMenu.Show();
+            this.Hide();
         }
 
         public void buttonBack_Click(object sender, EventArgs e)
