@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp2
 {
-    partial class Form1
+    partial class FormSelectClass
     {
         /// <summary>
         ///  Required designer variable.

@@ -9,7 +9,7 @@
 
         private void buttonOrder_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();  // 주문
+            FormSelectClass form1 = new FormSelectClass();  // 주문
             form1.Show();
             this.Hide();
         }

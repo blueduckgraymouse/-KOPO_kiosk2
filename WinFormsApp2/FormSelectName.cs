@@ -20,10 +20,10 @@ namespace WinFormsApp2
                 // 조회
                 MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
 
-                String selectQuery = "select pNo, pName from people as p where cNo = '#cNo' Order by pNo";
+                //String selectQuery = "select pNo, pName from people as p where cNo = '#cNo' Order by pNo";
+                //selectQuery = selectQuery.Replace("#cNo", cNo);
 
-                selectQuery = selectQuery.Replace("#cNo", cNo);
-                //selectQuery = selectQuery.Replace("#cNo", "1");
+                String selectQuery = "select pNo, pName from people as p where cNo = " + cNo + " Order by pNo";
 
                 connection.Open();
 
@@ -92,7 +92,7 @@ namespace WinFormsApp2
 
         public void buttonBack_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            FormSelectClass form1 = new FormSelectClass();
             form1.Show();
             this.Hide();
         }

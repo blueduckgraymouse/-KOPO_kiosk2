@@ -41,8 +41,6 @@ C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\bin\Debug\net6.0-wi
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\bin\Debug\net6.0-windows\WinFormsApp2.dll
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\bin\Debug\net6.0-windows\WinFormsApp2.pdb
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.csproj.AssemblyReference.cache
-C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.Form1.resources
-C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.Form2.resources
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.Properties.Resources.resources
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.csproj.GenerateResource.cache
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.GeneratedMSBuildEditorConfig.editorconfig
@@ -68,3 +66,5 @@ C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-wi
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormSelectName.resources
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormSelectMenu.resources
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.temp.resources
+C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormSelectIceOrHot.resources
+C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormSelectClass.resources

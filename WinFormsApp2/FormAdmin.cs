@@ -19,7 +19,7 @@ namespace WinFormsApp2
                 MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
 
                 dataGridViewSortedByName.Rows.Clear();
-                String selectQuery = "select hNo, pName, mName, cName from orderHistory as o, menu as m, class as c, people as p where o.mNo = m.mNo and p.cno = c.cno and o.pno = p.pno order by cName, pName";
+                String selectQuery = "select oNo, pName, mName, oHotOrIce, cName from orderHistory as o, menu as m, class as c, people as p where o.mNo = m.mNo and p.cno = c.cno and o.pno = p.pno order by cName, pName";
 
                 connection.Open();
 
@@ -27,19 +27,20 @@ namespace WinFormsApp2
 
                 MySqlDataReader table = cmd.ExecuteReader();
 
-                dataGridViewSortedByName.ColumnCount = 4;
+                dataGridViewSortedByName.ColumnCount = 5;
                 dataGridViewSortedByName.Columns[0].Name = "주문번호";
                 dataGridViewSortedByName.Columns[1].Name = "주문자명";
                 dataGridViewSortedByName.Columns[2].Name = "메뉴이름";
-                dataGridViewSortedByName.Columns[3].Name = "반구분";
+                dataGridViewSortedByName.Columns[3].Name = "핫 / 아이스";
+                dataGridViewSortedByName.Columns[4].Name = "반구분";
 
                 while (table.Read())
                 {
-                    dataGridViewSortedByName.Rows.Add(table["hNo"], table["pName"], table["mName"], table["cName"]);
+                    dataGridViewSortedByName.Rows.Add(table["oNo"], table["pName"], table["mName"], table["oHotOrIce"], table["cName"]);
                 }
 
                 dataGridViewSortedByCount.Rows.Clear();
-                String selectQuery2 = "select mName, count(*) as total from orderHistory as o, menu where o.mNo = menu.mNo group by mName order by total desc";
+                String selectQuery2 = "select mName, count(*) as total, oHotOrIce from orderHistory as o, menu where o.mNo = menu.mNo group by mName, oHotOrIce order by mName desc";
                 connection.Close();
 
                 dataGridViewSortedByName.Columns[0].Visible = false;
@@ -50,13 +51,14 @@ namespace WinFormsApp2
 
                 MySqlDataReader table2 = cmd2.ExecuteReader();
 
-                dataGridViewSortedByCount.ColumnCount = 2;
+                dataGridViewSortedByCount.ColumnCount = 3;
                 dataGridViewSortedByCount.Columns[0].Name = "메뉴이름";
                 dataGridViewSortedByCount.Columns[1].Name = "수량";
+                dataGridViewSortedByCount.Columns[2].Name = "핫 / 아이스";
 
                 while (table2.Read())
                 {
-                    dataGridViewSortedByCount.Rows.Add(table2["mName"], table2["total"]);
+                    dataGridViewSortedByCount.Rows.Add(table2["mName"], table2["total"], table2["oHotOrIce"]);
                 }
 
                 connection.Close();
@@ -75,7 +77,7 @@ namespace WinFormsApp2
             {
                 MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
 
-                String selectQuery = "delete from orderHistory where hNo > 0";
+                String selectQuery = "delete from orderHistory where oNo > 0";
 
                 connection.Open();
 
@@ -102,11 +104,11 @@ namespace WinFormsApp2
 
                 MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
 
-                string selected_hNO = dataGridViewSortedByName.CurrentRow.Cells[0].Value.ToString();
+                string selected_oNo = dataGridViewSortedByName.CurrentRow.Cells[0].Value.ToString();
 
-                string deleteQuery = "DELETE FROM orderHistory WHERE hNo = '#hNo'";
+                string deleteQuery = "DELETE FROM orderHistory WHERE oNo = '#oNo'";
 
-                deleteQuery = deleteQuery.Replace("#hNo", selected_hNO);
+                deleteQuery = deleteQuery.Replace("#oNo", selected_oNo);
 
                 connection.Open();
 

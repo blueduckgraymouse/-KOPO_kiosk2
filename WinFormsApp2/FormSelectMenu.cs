@@ -12,6 +12,8 @@ namespace WinFormsApp2
         public FormSelectMenu(String selected_cNo, String selected_pNo)
         {
             InitializeComponent();
+            cNo = selected_cNo;
+            pNo = selected_pNo;
 
             try
             {
