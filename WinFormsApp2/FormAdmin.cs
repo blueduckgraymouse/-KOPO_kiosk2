@@ -29,14 +29,14 @@ namespace WinFormsApp2
 
                 dataGridViewSortedByName.ColumnCount = 5;
                 dataGridViewSortedByName.Columns[0].Name = "주문번호";
-                dataGridViewSortedByName.Columns[1].Name = "주문자명";
-                dataGridViewSortedByName.Columns[2].Name = "메뉴이름";
-                dataGridViewSortedByName.Columns[3].Name = "핫 / 아이스";
-                dataGridViewSortedByName.Columns[4].Name = "반구분";
+                dataGridViewSortedByName.Columns[1].Name = "반구분";
+                dataGridViewSortedByName.Columns[2].Name = "주문자명";
+                dataGridViewSortedByName.Columns[3].Name = "메뉴이름";
+                dataGridViewSortedByName.Columns[4].Name = "핫 / 아이스";
 
                 while (table.Read())
                 {
-                    dataGridViewSortedByName.Rows.Add(table["oNo"], table["pName"], table["mName"], table["oHotOrIce"], table["cName"]);
+                    dataGridViewSortedByName.Rows.Add(table["oNo"], table["cName"], table["pName"], table["mName"], table["oHotOrIce"]);
                 }
 
                 dataGridViewSortedByCount.Rows.Clear();
