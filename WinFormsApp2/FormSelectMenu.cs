@@ -15,11 +15,17 @@ namespace WinFormsApp2
             cNo = selected_cNo;
             pNo = selected_pNo;
 
+            setTaps();
+        }
+
+        private void setTaps()
+        {
             try
             {
                 int i = 0;
 
-                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
                 String selectQuery = "select cNo, cName from category";
 
@@ -37,7 +43,7 @@ namespace WinFormsApp2
 
                     // 탭 페이지 선언
                     TabPage tabpage_clone = new TabPage();
-                    //tabpage_clone.SuspendLayout();
+
                     // 탭 페이지 구성
                     tabpage_clone.Location = new System.Drawing.Point(4, 24);
                     tabpage_clone.Name = "tabPage" + cNo;
@@ -51,8 +57,8 @@ namespace WinFormsApp2
 
                     try
                     {
-                        // 조회
-                        MySqlConnection connection2 = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                        //MySqlConnection connection2 = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                        MySqlConnection connection2 = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
                         String selectQuery2 = "select mNo, sNo, mName, mVisible from menu as m where cNo = " + cNo;
 
@@ -74,7 +80,6 @@ namespace WinFormsApp2
                         int[] width = { 145, 435, 725 };
                         int height = 200;
 
-                        // 버튼 추가
                         while (table2.Read())
                         {
                             String name2 = table2["mName"].ToString();
@@ -105,7 +110,7 @@ namespace WinFormsApp2
                     }
                     catch (Exception ex)
                     {
-
+                        MessageBox.Show("메뉴 로딩 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     i++;
                 }
@@ -121,8 +126,6 @@ namespace WinFormsApp2
         private void buttonClone_Click(object sender, EventArgs e)
         {
             String mNo = ((Button)sender).Name;
-            //MessageBox.Show(mNo);
-            //mNo, cNo , name 다음 페이지로 전달
             FormSelectIceOrHot formSelectIceOrHot = new FormSelectIceOrHot(cNo, pNo, mNo);
             formSelectIceOrHot.Show();
             this.Hide();

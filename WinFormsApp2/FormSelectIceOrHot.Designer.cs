@@ -30,8 +30,6 @@
         {
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.pictureBoxHome = new System.Windows.Forms.PictureBox();
-            this.buttonHot = new System.Windows.Forms.Button();
-            this.buttonIce = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             this.SuspendLayout();
@@ -59,18 +57,16 @@
             this.pictureBoxHome.TabIndex = 2;
             this.pictureBoxHome.TabStop = false;
             this.pictureBoxHome.Click += new System.EventHandler(this.pictureBoxHome_Click);
-       
             // 
             // FormSelectIceOrHot
             // 
             this.BackgroundImage = global::WinFormsApp2.Properties.Resources.배경_일러스트;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1064, 1881);
-            this.Controls.Add(this.buttonIce);
-            this.Controls.Add(this.buttonHot);
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.pictureBoxHome);
             this.Name = "FormSelectIceOrHot";
+            this.Text = "핫 / 아이스 선택";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             this.ResumeLayout(false);
@@ -81,7 +77,5 @@
 
         private PictureBox pictureBoxBack;
         private PictureBox pictureBoxHome;
-        private Button buttonHot;
-        private Button buttonIce;
     }
 }

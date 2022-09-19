@@ -18,10 +18,8 @@ namespace WinFormsApp2
             try
             {
                 // 조회
-                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
-
-                //String selectQuery = "select pNo, pName from people as p where cNo = '#cNo' Order by pNo";
-                //selectQuery = selectQuery.Replace("#cNo", cNo);
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
                 String selectQuery = "select pNo, pName from people as p where cNo = " + cNo + " Order by pNo";
 
@@ -46,16 +44,12 @@ namespace WinFormsApp2
                 while (table.Read())
                 {
                     String name = table["pName"].ToString();
-                    //name = name.Substring(0,1) + "*" + name.Substring(3);
 
                     Button btn_clone = new Button();
                     btn_clone.Click += new EventHandler(buttonClone_Click);
 
                     this.Controls.Add(btn_clone);
-                    
-                    
 
-                    //sbtn_clone.Location = new Point(50 + (100 * count), 50);
                     btn_clone.Location = new Point(width[count % 3], height + 150 * (count / 3));
 
                     btn_clone.Width = 60;

@@ -19,6 +19,7 @@ namespace WinFormsApp2
         String cNo;
         String pNo;
         String mNo;
+        String HotOrIce;
 
         public FormSelectIceOrHot(String selected_cNo, String selected_pNo, String selected_mNo)
         {
@@ -27,10 +28,15 @@ namespace WinFormsApp2
             pNo = selected_pNo;
             mNo = selected_mNo;
 
+            setButtons();
+        }
 
+        private void setButtons()
+        {
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
                 String selectQuery = "select mHot, mIce from menu where mNo=" + mNo;
 
@@ -40,7 +46,6 @@ namespace WinFormsApp2
 
                 MySqlDataReader table = cmd.ExecuteReader();
 
-                // 버튼 추가
                 while (table.Read())
                 {
                     String mHot = table["mHot"].ToString();
@@ -63,6 +68,7 @@ namespace WinFormsApp2
 
                         this.Controls.Add(buttonIce);
                     }
+
                     if (mHot.Equals("True"))
                     {
                         Button buttonHot = new Button();
@@ -84,14 +90,11 @@ namespace WinFormsApp2
 
                 connection.Close();
             }
-             catch (Exception e)
+            catch (Exception ex)
             {
-
+                MessageBox.Show("핫 / 아이스 로딩 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-
-
 
         private void pictureBoxHome_Click(object sender, EventArgs e)
         {
@@ -109,33 +112,41 @@ namespace WinFormsApp2
 
         private void button_Click(object sender, EventArgs e)
         {
-            String HotOrIce = ((Button)sender).Name;
+            HotOrIce = ((Button)sender).Name;
 
-            String pName = getPName(pNo);
-            String mName = getMName(mNo);
+            String pName = getPName();
+            String mName = getMName();
 
 
-            if (checkOrderBefore(pNo))
+            if (checkOrderBefore())
             {
                 DialogResult result = MessageBox.Show(pName + "님 " + mName + "(" + HotOrIce + ")로 주문 하시겠습니까?", "주문", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
-                    SaveOrder(cNo, pNo, mNo, HotOrIce);
-
-                    FormMain formMain = new FormMain();
-                    formMain.Show();
-                    this.Hide();
+                    saveOrder();
                 }
             }
+            else
+            {
+                DialogResult result = MessageBox.Show(pName + "님 " + mName + "(" + HotOrIce + ")로 주문을 바꾸시겠습니까?", "주문", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    updateOrder();
+                }
+            }
+            FormMain formMain = new FormMain();
+            formMain.Show();
+            this.Hide();
         }
 
-        private String getPName(String pNo)
+        private String getPName()
         {
             String pName = "";
 
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
                 String selectQuery = "select pName from people where pNo=" + pNo;
 
@@ -153,19 +164,20 @@ namespace WinFormsApp2
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("주문자 이름 로딩 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             return pName;
         }
 
-        private String getMName(String mNo)
+        private String getMName()
         {
             String mName = "";
 
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
                 String selectQuery = "select mName from menu where mNo=" + mNo;
 
@@ -183,19 +195,20 @@ namespace WinFormsApp2
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("메뉴 이름 로딩 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             return mName;
         }
 
-        private bool checkOrderBefore(String pNo)
+        private bool checkOrderBefore()
         {
             bool flag = false;
 
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
                 String selectQuery = "select count(*) as count from orderhistory where pNo=" + pNo;
 
@@ -218,17 +231,18 @@ namespace WinFormsApp2
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("기 주문 여부 로딩 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             return flag;
         }
 
-        private void SaveOrder(String cNo, String pNo, String mNo, String HotOrIce)
+        private void saveOrder()
         {
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
                 String selectQuery = " insert into orderHistory(mNo, pNo, oHotOrIce) values(" + mNo + ", " + pNo + ", \"" + HotOrIce + "\")";
 
@@ -239,18 +253,34 @@ namespace WinFormsApp2
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 connection.Close();
-
-                FormMain formMain = new FormMain();
-                formMain.Show();
-                Hide();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show("저장 실패 - 다시 주문하세요");
+                MessageBox.Show("주문 저장 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
-                FormMain formMain = new FormMain();
-                formMain.Show();
-                Hide();
+
+        private void updateOrder()
+        {
+            try
+            {
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
+
+                String selectQuery = "update orderHistory set mNo = " + mNo + ", oHotOrIce = \"" + HotOrIce + "\" where pNo = " + pNo;
+
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("주문 저장 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

@@ -78,7 +78,7 @@
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.pictureBoxHome);
             this.Name = "FormSelectMenu";
-            this.Text = "FormSelectMenu";
+            this.Text = "메뉴 선택";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             this.tabControl.ResumeLayout(false);

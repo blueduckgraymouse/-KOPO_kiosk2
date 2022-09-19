@@ -16,9 +16,12 @@ namespace WinFormsApp2
         {
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
+
 
                 dataGridViewSortedByName.Rows.Clear();
+
                 String selectQuery = "select oNo, pName, mName, oHotOrIce, cName from orderHistory as o, menu as m, class as c, people as p where o.mNo = m.mNo and p.cno = c.cno and o.pno = p.pno order by cName, pName";
 
                 connection.Open();
@@ -39,7 +42,10 @@ namespace WinFormsApp2
                     dataGridViewSortedByName.Rows.Add(table["oNo"], table["cName"], table["pName"], table["mName"], table["oHotOrIce"]);
                 }
 
+
+
                 dataGridViewSortedByCount.Rows.Clear();
+
                 String selectQuery2 = "select mName, count(*) as total, oHotOrIce from orderHistory as o, menu where o.mNo = menu.mNo group by mName, oHotOrIce order by mName desc";
                 connection.Close();
 
@@ -61,6 +67,7 @@ namespace WinFormsApp2
                     dataGridViewSortedByCount.Rows.Add(table2["mName"], table2["total"], table2["oHotOrIce"]);
                 }
 
+
                 connection.Close();
             }
             catch (Exception ex)
@@ -75,7 +82,8 @@ namespace WinFormsApp2
         {
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
                 String selectQuery = "delete from orderHistory where oNo > 0";
 
@@ -102,7 +110,8 @@ namespace WinFormsApp2
             {
                 this.Cursor = Cursors.WaitCursor;
 
-                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
                 string selected_oNo = dataGridViewSortedByName.CurrentRow.Cells[0].Value.ToString();
 

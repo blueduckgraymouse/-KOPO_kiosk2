@@ -9,8 +9,8 @@
 
         private void buttonOrder_Click(object sender, EventArgs e)
         {
-            FormSelectClass form1 = new FormSelectClass();  // 주문
-            form1.Show();
+            FormSelectClass formSelectClass = new FormSelectClass();  // 주문
+            formSelectClass.Show();
             this.Hide();
         }
 

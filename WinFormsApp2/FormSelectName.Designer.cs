@@ -68,7 +68,7 @@
             this.Controls.Add(this.pictureBoxHome);
             this.Controls.Add(this.pictureBack);
             this.Name = "FormSelectName";
-            this.Text = "FormSelectName";
+            this.Text = "이름 선택";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             this.ResumeLayout(false);
