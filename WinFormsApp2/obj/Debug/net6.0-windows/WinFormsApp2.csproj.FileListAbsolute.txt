@@ -65,6 +65,5 @@ C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-wi
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormAdmin.resources
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormSelectName.resources
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormSelectMenu.resources
-C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.temp.resources
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormSelectIceOrHot.resources
 C:\KOPO\git_tracking\project\C#\visualStudioPro\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.FormSelectClass.resources

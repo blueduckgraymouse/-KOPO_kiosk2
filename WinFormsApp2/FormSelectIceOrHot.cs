@@ -6,9 +6,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace WinFormsApp2
 {
@@ -108,8 +110,118 @@ namespace WinFormsApp2
         private void button_Click(object sender, EventArgs e)
         {
             String HotOrIce = ((Button)sender).Name;
-            MessageBox.Show("저장하시겠습니까?", "저장", MessageBoxButtons.OKCancel);
-            SaveOrder(cNo, pNo, mNo, HotOrIce);
+
+            String pName = getPName(pNo);
+            String mName = getMName(mNo);
+
+
+            if (checkOrderBefore(pNo))
+            {
+                DialogResult result = MessageBox.Show(pName + "님 " + mName + "(" + HotOrIce + ")로 주문 하시겠습니까?", "주문", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    SaveOrder(cNo, pNo, mNo, HotOrIce);
+
+                    FormMain formMain = new FormMain();
+                    formMain.Show();
+                    this.Hide();
+                }
+            }
+        }
+
+        private String getPName(String pNo)
+        {
+            String pName = "";
+
+            try
+            {
+                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+
+                String selectQuery = "select pName from people where pNo=" + pNo;
+
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                reader.Read();
+
+                pName = reader["pName"].ToString();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return pName;
+        }
+
+        private String getMName(String mNo)
+        {
+            String mName = "";
+
+            try
+            {
+                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+
+                String selectQuery = "select mName from menu where mNo=" + mNo;
+
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                reader.Read();
+
+                mName = reader["mName"].ToString();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return mName;
+        }
+
+        private bool checkOrderBefore(String pNo)
+        {
+            bool flag = false;
+
+            try
+            {
+                MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+
+                String selectQuery = "select count(*) as count from orderhistory where pNo=" + pNo;
+
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                reader.Read();
+
+                String result = reader["count"].ToString();
+
+                if (result.Equals("0"))
+                {
+                    flag = true;
+                }
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return flag;
         }
 
         private void SaveOrder(String cNo, String pNo, String mNo, String HotOrIce)

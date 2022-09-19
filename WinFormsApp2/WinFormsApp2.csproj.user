@@ -19,8 +19,5 @@
     <Compile Update="FormSelectName.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="temp.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>
