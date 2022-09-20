@@ -96,8 +96,6 @@ namespace WinFormsApp2
                     MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
 
                     MySqlDataReader reader = cmd.ExecuteReader();
-
-                    MessageBox.Show("주문 초기화 성공", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -132,8 +130,6 @@ namespace WinFormsApp2
                     MySqlCommand cmd = new MySqlCommand(deleteQuery, connection);
 
                     MySqlDataReader reader = cmd.ExecuteReader();
-
-                    MessageBox.Show("주문 삭제 성공", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 catch (Exception ex)
