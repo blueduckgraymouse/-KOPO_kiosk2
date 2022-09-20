@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Xml.Linq;
 
 namespace WinFormsApp2
 {
@@ -80,60 +81,68 @@ namespace WinFormsApp2
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult result = MessageBox.Show("주문 목록을 초기화하시겠습니까?", "초기화", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
             {
-                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
-                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
+                try
+                {
+                    //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                    MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
-                String selectQuery = "delete from orderHistory where oNo > 0";
+                    String selectQuery = "delete from orderHistory where oNo > 0";
 
-                connection.Open();
+                    connection.Open();
 
-                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+                    MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
 
-                MySqlDataReader reader = cmd.ExecuteReader();
+                    MySqlDataReader reader = cmd.ExecuteReader();
 
-                MessageBox.Show("주문 초기화 성공", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("주문 초기화 성공", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("주문 초기화 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                selectOrderhistory();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("주문 초기화 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            selectOrderhistory();
         }
 
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult result = MessageBox.Show(dataGridViewSortedByName.CurrentRow.Cells[2].Value.ToString() + "님의 주문을 삭제하시겠습니까?", "삭제", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
             {
-                this.Cursor = Cursors.WaitCursor;
+                try
+                {
+                    this.Cursor = Cursors.WaitCursor;
 
-                //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
-                MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
+                    //MySqlConnection connection = new MySqlConnection("Server=192.168.23.94; Port=3305; Database=kiosk; Uid=kioskManager; Pwd=abcd1234;");
+                    MySqlConnection connection = new MySqlConnection("Server=localhost; Port=3306; Database=kiosk; Uid=root; Pwd=abcd1234;");
 
-                string selected_oNo = dataGridViewSortedByName.CurrentRow.Cells[0].Value.ToString();
+                    string selected_oNo = dataGridViewSortedByName.CurrentRow.Cells[0].Value.ToString();
 
-                string deleteQuery = "DELETE FROM orderHistory WHERE oNo = '#oNo'";
+                    string deleteQuery = "DELETE FROM orderHistory WHERE oNo = '#oNo'";
 
-                deleteQuery = deleteQuery.Replace("#oNo", selected_oNo);
+                    deleteQuery = deleteQuery.Replace("#oNo", selected_oNo);
 
-                connection.Open();
+                    connection.Open();
 
-                MySqlCommand cmd = new MySqlCommand(deleteQuery, connection);
+                    MySqlCommand cmd = new MySqlCommand(deleteQuery, connection);
 
-                MySqlDataReader reader = cmd.ExecuteReader();
+                    MySqlDataReader reader = cmd.ExecuteReader();
 
-                MessageBox.Show("주문 삭제 성공", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("주문 삭제 성공", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("주문 삭제 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                selectOrderhistory();
             }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("주문 삭제 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            selectOrderhistory();
         }
 
         private void pictureBoxHome_Click(object sender, EventArgs e)
