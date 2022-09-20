@@ -31,8 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.pictureOrder = new System.Windows.Forms.PictureBox();
             this.pictureBasket = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBasket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureOrder
@@ -59,6 +62,28 @@
             this.pictureBasket.TabStop = false;
             this.pictureBasket.Click += new System.EventHandler(this.buttonBasket_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::WinFormsApp2.Properties.Resources.폴리텍;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(415, 1700);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 100);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(442, 1814);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(196, 21);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "ⓒ 최수혁. 임현덕, 주재영";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -66,18 +91,24 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1064, 1881);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBasket);
             this.Controls.Add(this.pictureOrder);
             this.Name = "FormMain";
             this.Text = "FormMain";
             ((System.ComponentModel.ISupportInitialize)(this.pictureOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBasket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 
     #endregion
         private PictureBox pictureOrder;
         private PictureBox pictureBasket;
+        private PictureBox pictureBox1;
+        private Label label1;
     }
 }

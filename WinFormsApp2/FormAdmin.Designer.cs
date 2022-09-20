@@ -37,10 +37,12 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.pictureBoxHome = new System.Windows.Forms.PictureBox();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSortedByName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSortedByCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewSortedByName
@@ -140,6 +142,17 @@
             this.pictureBoxBack.TabStop = false;
             this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::WinFormsApp2.Properties.Resources.폴리텍;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(415, 1700);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 100);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -147,6 +160,7 @@
             this.BackgroundImage = global::WinFormsApp2.Properties.Resources.배경_일러스트;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1064, 1881);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.pictureBoxHome);
             this.Controls.Add(this.buttonDelete);
@@ -160,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSortedByCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,5 +186,6 @@
         private Button buttonDelete;
         private PictureBox pictureBoxHome;
         private PictureBox pictureBoxBack;
+        private PictureBox pictureBox1;
     }
 }

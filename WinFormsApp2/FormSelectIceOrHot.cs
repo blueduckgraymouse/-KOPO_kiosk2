@@ -124,6 +124,7 @@ namespace WinFormsApp2
                 if (result == DialogResult.OK)
                 {
                     saveOrder();
+                    goMainPage();
                 }
             }
             else
@@ -132,11 +133,10 @@ namespace WinFormsApp2
                 if (result == DialogResult.OK)
                 {
                     updateOrder();
+                    goMainPage();
                 }
             }
-            FormMain formMain = new FormMain();
-            formMain.Show();
-            this.Hide();
+
         }
 
         private String getPName()
@@ -282,6 +282,13 @@ namespace WinFormsApp2
             {
                 MessageBox.Show("주문 저장 실패" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void goMainPage()
+        {
+            FormMain formMain = new FormMain();
+            formMain.Show();
+            this.Hide();
         }
     }
 }
