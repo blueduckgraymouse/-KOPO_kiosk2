@@ -115,6 +115,9 @@ namespace WinFormsApp2
             HotOrIce = ((Button)sender).Name;
 
             String pName = getPName();
+            StringBuilder name = new StringBuilder(getPName().ToString());
+            name[1] = '*';
+            pName = name.ToString();
             String mName = getMName();
 
 

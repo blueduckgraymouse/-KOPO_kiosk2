@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Text;
 
 namespace WinFormsApp2
 {
@@ -43,7 +44,9 @@ namespace WinFormsApp2
                 // 버튼 추가
                 while (table.Read())
                 {
-                    String name = table["pName"].ToString();
+                    StringBuilder name = new StringBuilder(table["pName"].ToString());
+                    name[1] = '*';
+
 
                     Button btn_clone = new Button();
                     btn_clone.Click += new EventHandler(buttonClone_Click);
@@ -59,7 +62,7 @@ namespace WinFormsApp2
 
                     btn_clone.Size = new System.Drawing.Size(200, 100);
                     btn_clone.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-                    btn_clone.Text = name;
+                    btn_clone.Text = name.ToString();
 
                     btn_clone.Name = table["pNo"].ToString();
                     count++;
